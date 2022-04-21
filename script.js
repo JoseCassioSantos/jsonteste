@@ -1,33 +1,15 @@
-const objs  = [
-    {
-        "nome": "Cassio",
-        "idade": 30,
-        "esta_trabalhando": true,
-        "detalhes_profissao":{
-            "profissão": "Programador",
-            "empresa": "Empresa X"
-        },
-        "hobbies": ["Programar", "Correr", "ler"]
-      },
+function fetchApiData() {
+    fetch('data.json')
+    .then(response => response.json())
+    .then((data) =>{
+        const list = document.querySelector('#fill_list')
 
-    {
-        "nome": "Matheus",
-        "idade": 25,
-        "esta_trabalhando": false,
-        "detalhes_profissao": {
-            "profissão": null,
-            "empresa": null
-        },
-        "hobbies": ["jogar", "Academia" ]
-      }
+        data.map((item) => {
+            const li = document.createElement('li');
 
-]
-
-const jsonData = JSON.stringify(objs)
-
-console.log(objs)
-console.log(jsonData)
-
-const objData = JSON.parse(jsonData);
-
-console.log(jsonData)
+            li.setAttribute('id', item.id);
+            li.innerHTML +='Id:'+ item.id +' Nome: '+ item.nome +' Idade:  '+ item.idade +' Profissão: '+ item.detalhes_profissao.profissao;
+            list.appendChild(li)
+        })
+    })
+}

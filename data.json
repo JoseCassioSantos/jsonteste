@@ -1,23 +1,37 @@
 
 [
     {
+        "id": 1,
         "nome": "Cassio",
         "idade": 30,
         "esta_trabalhando": true,
         "detalhes_profissao":{
-            "profissão": "Programador",
+            "profissao": "Programador",
             "empresa": "Empresa X"
         },
         "hobbies": ["Programar", "Correr", "ler"]
       },
 
     {
+        "id": 2,
         "nome": "Matheus",
         "idade": 25,
+        "esta_trabalhando": true,
+        "detalhes_profissao": {
+            "profissao": "Analista de TI",
+            "empresa": "Neobpo"
+        },
+        "hobbies": ["jogar", "Academia" ]
+      },
+
+      {
+        "id": 3,
+        "nome": "Thiago",
+        "idade": 21,
         "esta_trabalhando": false,
         "detalhes_profissao": {
-            "profissão": null,
-            "empresa": null
+            "profissao": "Assistente de TI",
+            "empresa": "Neobpo"
         },
         "hobbies": ["jogar", "Academia" ]
       }

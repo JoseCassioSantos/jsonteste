@@ -1,0 +1,29 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main{
+    background: #424141 ;
+    height: 100vh;
+}
+
+h1{
+    color: aliceblue;
+}
+
+ul{
+    background-color: aliceblue;
+    
+}
+
+ul, li{
+    border: #424141 solid 1px ;
+    padding: 2px;
+}
+
+button{
+    color: aliceblue;
+    background: #424141;
+    border: white solid 1px ;
+    font-size: 18px;
+}
