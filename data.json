@@ -34,6 +34,18 @@
             "empresa": "Neobpo"
         },
         "hobbies": ["jogar", "Academia" ]
+      },
+
+      {
+        "id": 3,
+        "nome": "Carlos",
+        "idade": 28,
+        "esta_trabalhando": false,
+        "detalhes_profissao": {
+            "profissao": "Analista de TI",
+            "empresa": "Neobpo"
+        },
+        "hobbies": ["jogar", "Academia" ]
       }
 
 ]
