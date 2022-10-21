@@ -34,9 +34,19 @@
             "empresa": "Neobpo"
         },
         "hobbies": ["jogar", "Academia" ]
+      },
+
+      {
+        "id": 4,
+        "nome": "Emerson",
+        "idade": 19,
+        "esta_trabalhando": true,
+        "detalhes_profissao": {
+            "profissao": "Assistente de TI",
+            "empresa": "Neobpo"
+        },
+        "hobbies": ["Pegar Novinha", "Academia" ]
       }
-
-
 
 
 
