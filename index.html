@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Fetch API</title>
-    
+    <title>Resultados da API de Mudanças de Operadores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #lista-mudancas {
+            width: 35%;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        #calendario-container {
+            width: 65%;
+            overflow-x:auto;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.6em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 3px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .fc {
+            font-size: 0.8em;
+        }
+        .fc-toolbar-title {
+            font-size: 0.2em;
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <h1>Aprendendo a usar a Fetch API</h1>
-        <button onclick="fetchApiData()">Clique aqui para preencher a lista</button>
-        <ul id="fill_list"></ul>
-    </main>
+    <div id="lista-mudancas">
+        <h1>Resultados da API de Mudanças de Operadores</h1>
+        <div id="filtro">
+            <label for="dataInicio">Data de Início:</label>
+            <input type="date" id="dataInicio">
+            <label for="dataFim">Data de Fim:</label>
+            <input type="date" id="dataFim">
+            <button id="filtrar">Filtrar</button>
+        </div>
+        <table id="tabelaResultados">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Descrição</th>
+                    <th>Data de Criação</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">Carregando...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="calendario-container">
+        <div id="calendario"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
