@@ -11,38 +11,70 @@
             display: flex;
             height: 100vh;
             margin: 0;
-            background-color: #414040;
-            color: aliceblue;
+            background-color: rgb(58, 57, 57);
+            color: #ddd;
         }
         #lista-mudancas {
-            width: 40%;
+            width: 50%;
             overflow-y: auto;
             padding: 10px;
+            
         }
         #calendario-container {
-            width: 60%;
-            overflow-x:auto;
+            width: 50%;
             padding: 10px;
+            
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.6em;
+            border-radius: 8px;
+            
         }
         th, td {
-            border: 1px solid #070707;
-            padding: 3px;
+            border: 1px solid #ddd;
+            padding: 8px;
             text-align: center;
+            font-size: small;
         }
         th {
-            background-color: #55355e;
+            background-color: #8130ec;
         }
         .fc {
             font-size: 0.8em;
         }
         .fc-toolbar-title {
-            font-size: 0.2em;
+            font-size: 1em;
         }
+        #legenda {
+            margin-top: 20px;
+            
+        }
+        #legenda ul {
+            list-style: none;
+            padding: 2px;
+            background-color: rgb(58, 58, 58);
+            border-radius: 8px;
+        }
+        #legenda li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        #legenda li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        #legenda li:nth-child(1)::before { background-color: gray; }
+        #legenda li:nth-child(2)::before { background-color: purple; }
+        #legenda li:nth-child(3)::before { background-color: blue; }
+        #legenda li:nth-child(4)::before { background-color: green; }
+        #legenda li:nth-child(5)::before { background-color: orange; }
+        #legenda li:nth-child(6)::before { background-color: tomato; }
+        #legenda li:nth-child(7)::before { background-color: skyblue; }
     </style>
 </head>
 <body>
@@ -73,6 +105,18 @@
     </div>
     <div id="calendario-container">
         <div id="calendario"></div>
+        <div id="legenda">
+            <h3>Legenda</h3>
+            <ul>
+                <li style="color: gray;">Cancelada</li>
+                <li style="color: purple;">Em execução</li>
+                <li style="color: blue;">Em aprovação</li>
+                <li style="color: green;">Finalizada com Sucesso</li>
+                <li style="color: orange;">Finalizada sem Sucesso sem Impacto</li>
+                <li style="color: tomato;">Finalizada sem Sucesso com Impacto</li>
+                <li style="color: skyblue;">Outros Status</li>
+            </ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

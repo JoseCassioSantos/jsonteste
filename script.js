@@ -8,7 +8,7 @@ const requestOptions = {
 };
 
 const tabelaResultados = document.getElementById("tabelaResultados").getElementsByTagName("tbody")[0];
-let calendario; // Variável para armazenar o calendário
+let calendario;
 
 function exibirResultados(data) {
     tabelaResultados.innerHTML = "";
@@ -31,7 +31,7 @@ function exibirResultados(data) {
         celulaStatus.textContent = item.status.name;
     });
 
-    atualizarCalendario(data); // Atualiza o calendário com as datas de início
+    atualizarCalendario(data);
 }
 
 function criarCalendario() {
@@ -41,7 +41,7 @@ function criarCalendario() {
     calendario = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         locale: 'pt-br',
-        events: [] // Inicializa com eventos vazios
+        events: []
     });
 
     calendario.render();
@@ -50,11 +50,39 @@ function criarCalendario() {
 function atualizarCalendario(data) {
     if (!calendario) return;
 
-    const eventos = data.map(item => ({
-        title: item.number, // Substitui "Janela de Produção" pelo número da mudança
-        start: item.creationDate,
-        allDay: true
-    }));
+    const eventos = data.map(item => {
+        let backgroundColor;
+
+        switch (item.status.name) {
+            case 'Cancelada':
+                backgroundColor = 'gray';
+                break;
+            case 'Em execução':
+                backgroundColor = 'purple';
+                break;
+            case 'Em aprovação':
+                backgroundColor = 'blue';
+                break;
+            case 'Finalizada com Sucesso':
+                backgroundColor = 'green';
+                break;
+            case 'Finalizado sem Sucesso sem Impacto':
+                backgroundColor = 'orange';
+                break;
+            case 'Finalizado sem Sucesso com Impacto':
+                backgroundColor = 'tomato';
+                break;
+            default:
+                backgroundColor = 'skyblue';
+        }
+
+        return {
+            title: item.number,
+            start: item.creationDate,
+            allDay: true,
+            backgroundColor: backgroundColor
+        };
+    });
 
     calendario.setOption('events', eventos);
 }
@@ -90,7 +118,7 @@ fetch("https://neoservice.neobpo.com.br/tas/api/operatorChanges", requestOptions
         return response.json();
     })
     .then(data => {
-        criarCalendario(); // Cria o calendário inicialmente
+        criarCalendario();
         exibirResultados(data.results);
 
         document.getElementById("filtrar").addEventListener("click", () => {
